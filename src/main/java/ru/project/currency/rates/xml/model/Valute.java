@@ -7,8 +7,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.fasterxml.jackson.xml.annotate.JacksonXmlProperty;
 import com.fasterxml.jackson.xml.annotate.JacksonXmlRootElement;
 
+import ru.project.currency.rates.rest.base.model.Base;
+
 @JacksonXmlRootElement(localName = "Valute")
-public class Valute {
+public class Valute extends Base {
+
+	private static final long serialVersionUID = 37074093391280334L;
 
 	@JacksonXmlProperty(isAttribute = true, localName = "ID")
 	@NotEmpty
