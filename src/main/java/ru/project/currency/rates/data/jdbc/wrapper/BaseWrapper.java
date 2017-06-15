@@ -70,4 +70,8 @@ public class BaseWrapper {
 		this.numCode = valute.getNumCode();
 		this.charCode = valute.getCharCode();
 	}
+	
+	public BaseWrapper() {
+		super();
+	}
 }
