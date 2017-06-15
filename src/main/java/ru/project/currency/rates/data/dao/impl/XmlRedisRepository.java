@@ -1,13 +1,16 @@
 package ru.project.currency.rates.data.dao.impl;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import ru.project.currency.rates.data.dao.BaseRepository;
 import ru.project.currency.rates.data.dao.RedisRepository;
+import ru.project.currency.rates.data.jdbc.dao.JdbcService;
 import ru.project.currency.rates.utils.UniCast;
 import ru.project.currency.rates.xml.model.Valute;
 
@@ -17,14 +20,19 @@ public class XmlRedisRepository extends BaseRepository implements RedisRepositor
 
 	private final static String KEY = "XML";
 
+	@Autowired
+	private JdbcService service;
+
 	@Override
 	public void saveAllValutes(List<Valute> valutes) {
 		valutes.forEach(valute -> this.hashOps.put(KEY, valute.getID(), valute));
+		this.service.save(valutes);
 	}
 
 	@Override
 	public void saveValute(Valute valute) {
 		this.hashOps.put(KEY, valute.getID(), valute);
+		this.service.save(Arrays.asList(valute));
 	}
 
 	@Override
