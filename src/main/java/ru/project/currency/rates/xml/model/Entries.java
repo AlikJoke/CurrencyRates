@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.assertj.core.util.Lists;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.xml.annotate.JacksonXmlProperty;
 import com.fasterxml.jackson.xml.annotate.JacksonXmlRootElement;
+import com.google.common.collect.Lists;
 
 @JacksonXmlRootElement(localName = "ValCurs")
 public class Entries {

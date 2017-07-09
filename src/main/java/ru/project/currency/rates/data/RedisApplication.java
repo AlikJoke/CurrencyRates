@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import ru.project.currency.rates.rest.base.model.Base;
+
 @Configuration
 public class RedisApplication {
 
@@ -14,8 +16,8 @@ public class RedisApplication {
 	}
 	 
 	@Bean
-	public RedisTemplate<String, Object> redisTemplate() {
-	    RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+	public RedisTemplate<String, Base> redisTemplate() {
+	    RedisTemplate<String, Base> template = new RedisTemplate<String, Base>();
 	    template.setConnectionFactory(jedisConnectionFactory());
 	    return template;
 	}
